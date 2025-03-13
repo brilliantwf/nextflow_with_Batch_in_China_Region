@@ -295,4 +295,4 @@ jobs. Default: `nf-queue-` plus value of `-u` argument.
 
 > Attention! `clean_up_aws_batch.sh` will not delete custom AMI created at step
 1 or S3 bucket created at step 2 as they can be reused (AMI) or contain results
-of pipeline execution.
+of pipeline execution..
