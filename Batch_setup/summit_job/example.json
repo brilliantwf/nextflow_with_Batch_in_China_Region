@@ -1,0 +1,81 @@
+{
+    "attempts": [
+      {
+        "container": {
+          "containerInstanceArn": "arn:aws-cn:ecs:cn-north-1:242602917853:container-instance/AWSBatch-nextflow-head-env-b4ab084a-a894-3afa-98c1-937ea03c176d/a29ad625261b4e8588e22fd422eceb5d",
+          "taskArn": "arn:aws-cn:ecs:cn-north-1:242602917853:task/AWSBatch-nextflow-head-env-b4ab084a-a894-3afa-98c1-937ea03c176d/b3e8e191289e455a9f96168dd5124eaf",
+          "exitCode": 0,
+          "logStreamName": "Nextflow-head/default/b3e8e191289e455a9f96168dd5124eaf",
+          "networkInterfaces": []
+        },
+        "startedAt": 1742179160681,
+        "stoppedAt": 1742180141814,
+        "statusReason": "Essential container in task exited"
+      }
+    ],
+    "container": {
+      "image": "242602917853.dkr.ecr.cn-north-1.amazonaws.com.cn/nextflow-head:latest",
+      "command": [
+        "/usr/local/bin/entrypoint.sh"
+      ],
+      "volumes": [],
+      "environment": [
+        {
+          "name": "PIPELINE_URL",
+          "value": "s3://bjs-nf-pip/rnaseq-nf"
+        },
+        {
+          "name": "NF_SCRIPT",
+          "value": "main.nf"
+        },
+        {
+          "name": "PROCESS_QUEUE",
+          "value": "nf-queue-admin"
+        },
+        {
+          "name": "BUCKET_TEMP_NAME",
+          "value": "bjs-nf-pip"
+        },
+        {
+          "name": "BUCKET_NAME_RESULTS",
+          "value": "bjs-nf-result"
+        }
+      ],
+      "mountPoints": [],
+      "ulimits": [],
+      "user": "root",
+      "exitCode": 0,
+      "containerInstanceArn": "arn:aws-cn:ecs:cn-north-1:242602917853:container-instance/AWSBatch-nextflow-head-env-b4ab084a-a894-3afa-98c1-937ea03c176d/a29ad625261b4e8588e22fd422eceb5d",
+      "taskArn": "arn:aws-cn:ecs:cn-north-1:242602917853:task/AWSBatch-nextflow-head-env-b4ab084a-a894-3afa-98c1-937ea03c176d/b3e8e191289e455a9f96168dd5124eaf",
+      "logStreamName": "Nextflow-head/default/b3e8e191289e455a9f96168dd5124eaf",
+      "networkInterfaces": [],
+      "resourceRequirements": [
+        {
+          "value": "2",
+          "type": "VCPU"
+        },
+        {
+          "value": "4096",
+          "type": "MEMORY"
+        }
+      ],
+      "secrets": []
+    },
+    "createdAt": 1742178799311,
+    "dependsOn": [],
+    "eksAttempts": [],
+    "jobArn": "arn:aws-cn:batch:cn-north-1:242602917853:job/4d311ee9-ec08-4f54-9293-75b4142f666e",
+    "jobDefinition": "arn:aws-cn:batch:cn-north-1:242602917853:job-definition/Nextflow-head:2",
+    "jobId": "4d311ee9-ec08-4f54-9293-75b4142f666e",
+    "jobName": "nextflow-job-16",
+    "jobQueue": "arn:aws-cn:batch:cn-north-1:242602917853:job-queue/nextflow-head-q",
+    "parameters": {},
+    "platformCapabilities": [
+      "EC2"
+    ],
+    "startedAt": 1742179160681,
+    "status": "SUCCEEDED",
+    "statusReason": "Essential container in task exited",
+    "stoppedAt": 1742180141814,
+    "tags": {}
+  }

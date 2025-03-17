@@ -1,0 +1,15 @@
+{
+    "jobName": "nextflow-job-18",
+    "jobQueue": "nextflow-head-q",
+    "jobDefinition": "Nextflow-head:2",
+    "containerOverrides": {
+        "command": ["/usr/local/bin/entrypoint.sh"],
+        "environment": [
+            {"name": "PIPELINE_URL", "value": "s3://bjs-nf-pip/rnaseq-nf"},
+            {"name": "NF_SCRIPT", "value": "main.nf"},
+            {"name": "PROCESS_QUEUE", "value": "nf-queue-admin"},
+            {"name": "BUCKET_TEMP_NAME", "value": "bjs-nf-pip"},
+            {"name": "BUCKET_NAME_RESULTS", "value": "bjs-nf-result"}
+        ]
+    }
+}

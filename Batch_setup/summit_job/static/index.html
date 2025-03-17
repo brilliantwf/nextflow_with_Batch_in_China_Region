@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Batch Job Submission</title>
+    <style>
+        body { padding: 20px; font-family: Arial, sans-serif; }
+        .form-group { margin-bottom: 15px; }
+        button { padding: 10px 20px; }
+    </style>
+</head>
+<body>
+    <h1>Submit Batch Job</h1>
+    <div class="form-group">
+        <label>Job Name:</label>
+        <input type="text" id="jobName" placeholder="Enter job name">
+    </div>
+    <div class="form-group">
+        <h3>Environment Variables:</h3>
+        <div id="envVars">
+            <div>
+                <input type="text" placeholder="PIPELINE_URL" value="s3://bjs-nf-pip/rnaseq-nf">
+                <input type="text" placeholder="NF_SCRIPT" value="main.nf">
+            </div>
+            <div>
+                <input type="text" placeholder="PROCESS_QUEUE" value="nf-queue-admin">
+                <input type="text" placeholder="BUCKET_TEMP_NAME" value="bjs-nf-pip">
+            </div>
+        </div>
+    </div>
+    <button onclick="submitJob()">Submit Job</button>
+
+    <script>
+        async function submitJob() {
+            const jobName = document.getElementById('jobName').value;
+            const environment = {
+                'PIPELINE_URL': 's3://bjs-nf-pip/rnaseq-nf',
+                'NF_SCRIPT': 'main.nf',
+                'PROCESS_QUEUE': 'nf-queue-admin',
+                'BUCKET_TEMP_NAME': 'bjs-nf-pip'
+            };
+
+            try {
+                const response = await fetch('/api/jobs', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        jobName,
+                        environment
+                    })
+                });
+
+                const data = await response.json();
+                alert(`Job submitted successfully!\nJob ID: ${data.jobId}`);
+            } catch (error) {
+                alert('Error submitting job: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html> 

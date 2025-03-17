@@ -32,6 +32,7 @@ Nextflow pipelines.
 ```
 # 登录ECR
 $(aws ecr get-login --no-include-email)
+aws ecr get-login-password --region cn-north-1 | docker login --username AWS --password-stdin 242602917853.dkr.ecr.cn-north-1.amazonaws.com.cn
 # 创建仓库
 aws ecr create-repository --repository-name nextflow-tools
 # 获取仓库URI
